@@ -1,0 +1,108 @@
+{
+    "animals": [
+        {
+            "name": "Cow",
+            "weight": {
+                "value": 250,
+                "unit": "kg"
+            },
+            "endangered": false,
+            "foods eaten": [
+                    {
+                        "name": "grass",
+                        "percent of diet": 20
+                    },
+                    {
+                        "name": "hay",
+                        "percent of diet": 40
+                    },
+                    {
+                        "name": "cattle feed",
+                        "percent of diet": 40
+                    }
+                ],
+            "natural predators": ["humans", "wolves", "lions", "hyenas", "wild dogs"],
+            "tastiness": 5
+        },
+        {
+            "name": "Elephant",
+            "weight": {
+                "value": 1000,
+                "unit": "kg"
+            },  
+            "endangered": true,
+            "foods eaten": [
+                {
+                    "name": "grass",
+                    "percent of diet": 35
+                },
+                {
+                    "name": "leaves",
+                    "percent of diet": 50
+                },
+                {
+                    "name": "peanuts",
+                    "percent of diet": 15
+                }
+            ],
+            "natural predators": ["humans", "lions"],
+            "tastiness": 3
+        },
+        {
+            "name": "Grey Wolf",
+            "weight": {
+                "value": 50,
+                "unit": "kg"
+            }, 
+            "endangered": true,
+            "foods eaten": [
+                {
+                    "name": "humans",
+                    "percent of diet": 1
+                },
+                {
+                    "name": "chickens",
+                    "percent of diet": 4
+                },
+                {
+                    "name": "cows",
+                    "percent of diet": 5
+                },
+                {
+                    "name": "deer",
+                    "percent of diet": 80
+                },
+                {
+                    "name": "antelope",
+                    "percent of diet": 10
+                }
+            ],
+            "natural predators": [],
+            "tastiness": 1
+        },
+        {
+            "name": "Squirrel",
+            "weight": {
+                "value": 5,
+                "unit": "kg"
+            }, 
+            "endangered": false,
+            "foods eaten": [
+                {
+                    "name": "nuts",
+                    "percent of diet": 70
+                },
+                {
+                    "name": "electric cables",
+                    "percent of diet": 10
+                },
+                {
+                    "name": "bird feed",
+                    "percent of diet": 20
+                }
+            ],
+            "natural predators": ["cats", "cyotes", "hawks"],
+            "tastiness": 1
+        }
+    ]
+}
