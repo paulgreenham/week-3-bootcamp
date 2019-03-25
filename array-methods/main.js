@@ -332,10 +332,53 @@ let users = [
 
 //1.
 
-let simpleUserList = users.map(u => {return {email: u.email, companyName: u.company.name}})
+// let simpleUserList = users.map(u => {return {email: u.email, companyName: u.company.name}})
 
-simpleUserList.forEach(s => console.log(s))
+// simpleUserList.forEach(s => console.log(s))
 
 
 //2.
 
+// let zipFilteredList = users.filter(u => u.address.zipcode[0] == 5)
+
+// zipFilteredList.forEach(z => console.log(z.id))
+
+
+//3.
+
+// let idsOfZipFilteredList = 
+//     users
+//         .filter(u => u.address.zipcode[0] == 5)
+//         .map(u => u.id)
+
+// console.log(idsOfZipFilteredList)
+
+
+//4.
+
+// let namesStartingWithC =
+//     users
+//         .map(u => u.name)
+//         .filter(u => u[0] === "C")
+
+// console.log(namesStartingWithC)
+
+
+//5.
+// let sameCity = users.every(u => u.address.city === "South Christy")
+
+// console.log(`That all the users live in South Christy is ${sameCity}.`)
+
+
+//6. 
+
+// let specificUserCompany = users.find(u => u.address.suite === "Apt. 950").company.name
+
+// console.log(specificUserCompany)
+
+
+//7.
+
+let userReadOut = user => `${user.name} lives in ${user.address.city}, and owns the company ${user.company.name}.`
+
+users.forEach(u => console.log(userReadOut(u)))
