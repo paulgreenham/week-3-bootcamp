@@ -101,7 +101,7 @@
 //                 d.volumeInfo.industryIdentifiers[0].identifier}`))
 //         },
 //         error: function (xhr, text, error) {
-//             console.log(data)
+//             console.log(text)
 //         }
 //     })
 // }
@@ -110,3 +110,41 @@
 //     getBook($("#query-type").val(), $("#query-value").val())
 //     // $("#container").append(`<div>${getBook($("#query-type").val(), $("#query-value").val())}</div>`)
 // })
+
+
+//4. + 5.
+
+const display = function(source){
+    $("#image-container").empty()
+    $("#image-container").append(`<iframe src="${source}">`)
+}
+
+const renderQueryString = function(str){
+        newStr = ""
+        for(let i = 0; i < str.length; i ++){
+            if(str[i] != " "){
+                newStr += str[i]
+            }
+            else{
+                newStr += "+"
+            }
+        }
+        return newStr
+    }
+
+const getCatGifs = function(queryTerms){
+    $.ajax({
+        method: "GET",
+        url: `http://api.giphy.com/v1/gifs/search?q=${renderQueryString(queryTerms)}&api_key=Cn0UdyG81KmxMaUCm93gc9Tx9cxyNRwp&limit=5`,
+        success: function(data){
+            display(data.data[0].embed_url)
+        },
+        error: function (xhr, text, error) {
+            console.log(text)
+        }
+    })
+}
+
+$("button").on("click", function(){
+    getCatGifs($("input").val())
+})
