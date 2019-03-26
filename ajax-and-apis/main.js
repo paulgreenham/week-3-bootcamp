@@ -112,39 +112,75 @@
 // })
 
 
-//4. + 5.
+//4. + 5. + GIF Generator Extension
 
-const display = function(source){
-    $("#image-container").empty()
-    $("#image-container").append(`<iframe src="${source}">`)
-}
+// const displayResults = function(urls){
+//     const source = $("#results-template").html()
+//     const template = Handlebars.compile(source)
+//     const hbText = template({urls})
+//     $("#image-container").append(hbText)
+// }
 
-const renderQueryString = function(str){
-        newStr = ""
-        for(let i = 0; i < str.length; i ++){
-            if(str[i] != " "){
-                newStr += str[i]
-            }
-            else{
-                newStr += "+"
-            }
-        }
-        return newStr
-    }
+// const addFavorite = function(url){
+//     const source = $("#favorite-template").html()
+//     const template = Handlebars.compile(source)
+//     const hbText = template({url})
+//     $("#favorites").append(hbText)
+// }
 
-const getCatGifs = function(queryTerms){
-    $.ajax({
-        method: "GET",
-        url: `http://api.giphy.com/v1/gifs/search?q=${renderQueryString(queryTerms)}&api_key=Cn0UdyG81KmxMaUCm93gc9Tx9cxyNRwp&limit=5`,
-        success: function(data){
-            display(data.data[0].embed_url)
-        },
-        error: function (xhr, text, error) {
-            console.log(text)
-        }
-    })
-}
+// const convertQueryString = function(str){
+//         newStr = ""
+//         for(let i = 0; i < str.length; i ++){
+//             if(str[i] != " "){
+//                 newStr += str[i]
+//             }
+//             else{
+//                 newStr += "+"
+//             }
+//         }
+//         return newStr
+//     }
 
-$("button").on("click", function(){
-    getCatGifs($("input").val())
-})
+// const getGifs = function(queryTerms){
+//     $.ajax({
+//         method: "GET",
+//         url: `http://api.giphy.com/v1/gifs/search?q=${convertQueryString(queryTerms)}&api_key=Cn0UdyG81KmxMaUCm93gc9Tx9cxyNRwp&limit=6`,
+//         success: function(data){
+//             const embedURLs = data.data.map(d => d.embed_url)
+//             displayResults(embedURLs)
+//         },
+//         error: function (xhr, text, error) {
+//             console.log(text)
+//         }
+//     })
+// }
+
+// let favoriteGifs = []
+
+// $("#search").on("click", function(){
+//     $("#image-container").empty()
+//     getGifs($("input").val())
+// })
+
+// $("#clear-results").on("click", function(){
+//     $("#image-container").empty()
+// })
+
+// $("#clear-favorites").on("click", function(){
+//     favoriteGifs = []
+//     $("#favorites").empty()
+// })
+
+// $("#image-container").on("click", ".add", function(){
+//     let url = $(this).siblings("iframe").attr("src")
+//     favoriteGifs.push(url)
+//     $(this).closest("div").remove()
+//     addFavorite(url)
+// })
+
+// $("#favorites").on("click", ".remove", function(){
+//     removeIndex = favoriteGifs.indexOf($(this).siblings("iframe").attr("src"))
+//     favoriteGifs.splice(removeIndex, 1)
+//     $(this).closest("div").remove()
+// })
+
