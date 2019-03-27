@@ -184,3 +184,55 @@
 //     $(this).closest("div").remove()
 // })
 
+
+//Google Books API Extension
+
+let neuroscienceComputerBooks = []
+
+const baseURL = "https://www.googleapis.com/books/v1/volumes?q="
+
+const startIndexes = [0, 40, 120]
+
+// const getTotalResults = function(){
+//     $.$.ajax({
+//         type: "GET",
+//         url: `${baseURL}intitle:neuroscience`,
+//         success: function (response) {
+//             setTimeout( () => response.totalItems, 3000)
+//         },
+//         error: function (xhr, text, error) {
+//             console.log(text)
+//         }
+//     })
+// }
+
+const getNeuroBooks = function(startIndex){
+    $.ajax({
+        method: "GET",
+        url: `${baseURL}intitle:neuroscience&startIndex=${startIndex}&maxResults=40`,
+        success: function(data){
+            let computerBooks = data.items
+                .filter(i => i.volumeInfo.categories == "Computers")
+                .map(i => i.volumeInfo.title)
+            // console.log(computerBooks)
+            neuroscienceComputerBooks.push(...computerBooks)
+            // if(startIndex == 120){
+            //     console.log(neuroscienceComputerBooks)
+            // }
+        },
+        error: function (xhr, text, error) {
+            console.log(text)
+        }
+    })
+}
+
+
+for(let startIndex of startIndexes){
+    getNeuroBooks(startIndex)
+}
+
+// for(let startIndex = 0; startIndex < (Math.ceil(getTotalResults / 40) * 40); startIndex += 40){
+//     getNeuroBooks(startIndex)
+// }
+
+setTimeout(function() {console.log(neuroscienceComputerBooks)}, 2000)
