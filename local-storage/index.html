@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Local Storage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="text">
+    <button id="wisdom-button">Save your wisdom</button>
+    <button id="clear">Clear Wisdom</button>
+    <div id="wisdom-container"></div>
+
+    <script id="wisdom-template" type="text/x-handlebars-template">
+        {{#each inputSayings}}
+        <div class="saying" data-id="{{this.id}}">
+            <p><span style="color: red" class="remove-saying">X</span> {{this.text}}</p>
+        </div>
+        {{/each}}
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>
