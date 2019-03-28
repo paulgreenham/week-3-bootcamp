@@ -214,11 +214,11 @@ const getNeuroBooks = function(startIndex){
             let computerBooks = data.items
                 .filter(i => i.volumeInfo.categories == "Computers")
                 .map(i => i.volumeInfo.title)
-            // console.log(computerBooks)
+            // console.log(computerBooks, startIndex)
             neuroscienceComputerBooks.push(...computerBooks)
-            // if(startIndex == 120){
-            //     console.log(neuroscienceComputerBooks)
-            // }
+            if(startIndex == 120){
+                console.log(neuroscienceComputerBooks)
+            }
         },
         error: function (xhr, text, error) {
             console.log(text)
@@ -235,4 +235,4 @@ for(let startIndex of startIndexes){
 //     getNeuroBooks(startIndex)
 // }
 
-setTimeout(function() {console.log(neuroscienceComputerBooks)}, 2000)
+// setTimeout(function() {console.log(neuroscienceComputerBooks)}, 2000)
